@@ -4,7 +4,7 @@ let jumps = 0;
 let level = 1;
 let points = 0;
 let initialSpeed = 1.6;
-
+var seconds = 00000
 
 const jump = () => {
     const map = [
@@ -29,14 +29,13 @@ const jump = () => {
     console.log(points);
     console.log(level);
     pipe.style.animationduration = `${initialSpeed - (level * (2 / 20))}s`;
-
-    //let pontuacao = `Level:${level} Pontuação:${pontucao}`
-    //document.getElementById('exibirpontuacao').innerHTML = level, pontuacao
-
-    /*document.getElementById("exibirpontuacao").style.left = '10px'
-        document.getElementById("exibirpontuacao").style.top = '10px'
-        document.getElementById("exibirpontuacao").style.textAlign = 'end'
-        document.getElementById("exibirpontuacao").style.fontSize = '14px'*/
+    
+    loop = () => {
+        Interval = setInterval
+        clearInterval(Interval);
+        seconds = "00000";
+        appendSeconds.innerHTML = seconds;
+    }
 
     setTimeout(() => {
         mario.classList.remove('jump')
