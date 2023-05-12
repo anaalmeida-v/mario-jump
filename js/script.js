@@ -4,7 +4,15 @@ let jumps = 0;
 let level = 1;
 let points = 0;
 let initialSpeed = 1.6;
-var seconds = 00000
+var seconds = 00000;
+let initialTime = 0;
+let initialPos = -80;
+
+const counter = setInterval(() => {
+    initialTime++;
+    document.getElementById('seconds').textContent = 'tempo ' + initialTime;    
+}, 1000);
+    
 
 const jump = () => {
     const map = [
@@ -23,23 +31,14 @@ const jump = () => {
     mario.classList.add('jump')//add class
 
     jumps++;
-    let level = Math.ceil(jumps / 2);
+    level = Math.ceil(jumps / 2);
     points += 2 * level;
-    console.log(jumps);
-    console.log(points);
-    console.log(level);
-    pipe.style.animationduration = `${initialSpeed - (level * (2 / 20))}s`;
-    
-    loop = () => {
-        Interval = setInterval
-        clearInterval(Interval);
-        seconds = "00000";
-        appendSeconds.innerHTML = seconds;
-    }
-
+    //pipe.style.animation = `pipe-animation 1.0s infinite linear`;
     setTimeout(() => {
         mario.classList.remove('jump')
-    }, 500)//após 500milissegundos, a função será executada
+        document.getElementById('level').textContent = 'level ' + level;
+        document.getElementById('points').textContent = 'pontos' + points;
+    }, 400)//após 500milissegundos, a função será executada
 }
 
 
@@ -48,7 +47,7 @@ const loop = setInterval(() => {
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '')//estilo computado na imagem do mário
     //+ - define um valor numérico
     //replace() - substitui valores
-    /*if (pipePosition <= 90 && pipePosition > 0 && marioPosition < 80) {//condicao para gameover
+    if (pipePosition <= 90 && pipePosition > 0 && marioPosition < 80) {//condicao para gameover
         console.log(pipePosition);
         pipe.style.animation = 'none'//animacao vai parar
         pipe.style.left = `${pipePosition}px`//valor left será o de quando o mario bater no objeto
@@ -62,7 +61,17 @@ const loop = setInterval(() => {
         //FORMATACOES IMG GAMEOVER
 
         clearInterval(loop) //parar aplicacao    para nao ser um loop infinito
-    }*/
-}, 2)
+        clearInterval(counter);
+        initialTime = 0;
+    }
+}, 10);
+
+setInterval(() => {
+    initialPos = initialPos + (15 + level);
+    pipe.style.right = `${initialPos}px`;
+    if(initialPos > window.innerWidth + 100){
+        initialPos = -80;
+    }
+}, 17);
 
 document.addEventListener('keydown', jump)//Adicione um evento click ao documento

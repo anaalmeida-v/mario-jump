@@ -25,7 +25,8 @@
     position: absolute;
     bottom: 0;
     width: 80px;
-    animation: pipe-animation 1.5s infinite linear;
+    right: -80px;
+    /*animation: pipe-animation 1.5s infinite linear;*/
 
 }/*nome-animacao + tempo-de-execucao + qnd-aparecer + se usará linha inteira*/
 
@@ -44,12 +45,25 @@
     animation: clouds-animation 20s infinite linear;
 }
 
+.velocidade1 {
+    animation: pipe-animation1 1.5s infinite linear;
+} 
+
 @keyframes pipe-animation { /* @keyframes regra - especifica o código de uma animação.*/
     from{/*de - inicio*/
         right: -80px;/*80px seria o tamanho da imagem, com isso ela não aparecerá na tela*/
     }
     to{/*para - fim*/
         right: 100%;
+    }
+}
+
+@keyframes pipe-animation1 { /* @keyframes regra - especifica o código de uma animação.*/
+    from{/*de - inicio*/
+        right: -80px;/*80px seria o tamanho da imagem, com isso ela não aparecerá na tela*/
+    }
+    to{/*para - fim*/
+        right: 200%;
     }
 }
 
