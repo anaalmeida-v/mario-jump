@@ -1,14 +1,9 @@
+/********************************************************
+geral */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-#exibirpontuacao{
-    text-align: end;
-    margin-right: 10px;
-    margin-top: 10px;
-    font-size: 3em;
 }
 
 .game-board{
@@ -21,6 +16,8 @@
     background: linear-gradient(#87CEEB, #e0f6ff);
 }
 
+/********************************************************
+pipe, nuvens, pulo e mario */
 .pipe{
     position: absolute;
     bottom: 0;
@@ -94,4 +91,32 @@
     to{
         right: 100%;
     }
+}
+
+/********************************************************
+inicio*/
+.botaoinicio{
+
+}
+
+.paginainicio{
+    background-image: url(img/fundoinicio.jpg);
+}
+
+
+/********************************************************
+game over*/
+.pagina{
+    background: none;
+}
+
+.botaovoltar{
+    font-family: jkj;
+}
+
+.placar{
+    font-family: jhkj;
+    width: 100px;
+    height: 500px;
+    border: 1px solid #000;
 }
