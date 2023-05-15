@@ -1,5 +1,11 @@
 /********************************************************
 geral */
+
+@font-face {
+    font-family: "SuperMario";
+    src: url("../font/Super-Mario-World.ttf") format("ttf")
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -99,24 +105,34 @@ inicio*/
 
 }
 
-.paginainicio{
+.fundoinicio{
     background-image: url(img/fundoinicio.jpg);
 }
 
 
 /********************************************************
 game over*/
-.pagina{
-    background: none;
-}
-
-.botaovoltar{
-    font-family: jkj;
-}
-
 .placar{
     font-family: jhkj;
     width: 100px;
     height: 500px;
     border: 1px solid #000;
+}
+.gameover {
+    margin: 0;
+    position: fixed;
+    margin-left: 450px;
+    width: 500px;
+}
+
+.btn {
+    width: 200px;
+    height: 30px;
+    background-color: #000;
+    margin-top: 400px;
+    color: bisque;
+    margin-left: 600px;
+}
+.oi{
+    font-family: 'SuperMario';
 }

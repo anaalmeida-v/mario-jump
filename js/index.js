@@ -1,3 +1,4 @@
+let paginaInicial
 [
     {
         "titulo": "img/nomeinicio.png",
@@ -5,6 +6,8 @@
     }
 ]
 
-const paginaInicial = (titulo, fundo) => {
-
-}
+(async () => {
+     paginaInicial = (titulo, fundo) => {
+        
+    }
+})

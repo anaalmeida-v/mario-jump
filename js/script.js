@@ -1,5 +1,10 @@
 const mario = document.querySelector('.mario')/*retorna o primeiro Element dentro do documento que corresponde ao seletor.Se nada for encontrado será retornado null*/
 const pipe = document.querySelector('.pipe')
+const gameover = document.querySelector('.gameover')
+const botaovoltar = document.querySelector('.btn')
+const tempo = document.getElementById('seconds')
+const pontos = document.getElementById('points')
+const nivel = document.getElementById('level')
 let jumps = 0;
 let level = 1;
 let points = 0;
@@ -55,9 +60,15 @@ const loop = setInterval(() => {
         mario.style.animation = 'none'
         mario.style.bottom = `${marioPosition}px`//mario vai parar qnd bater no cubo
 
-        mario.src = 'img/game-over.png'//insercao da img de gameover
+        mario.src = 'img/game-over.png' //insercao da img de gameover
         mario.style.width = '75px'
         mario.style.marginLeft = '50px'
+        tempo.style.display = 'none'
+        pontos.style.display = 'none'
+        nivel.style.display = 'none'
+        gameover.src = 'img/gameover-text.png'
+        botaovoltar.src = document.createElement('button')
+        botaovoltar.innerHTML = 'voltar'
         //FORMATACOES IMG GAMEOVER
 
         clearInterval(loop) //parar aplicacao    para nao ser um loop infinito
