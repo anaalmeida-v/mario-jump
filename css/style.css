@@ -3,8 +3,12 @@ geral */
 
 @font-face {
     font-family: "SuperMario";
-    src: url("../font/Super-Mario-World.ttf") format("ttf")
-  }
+    src: url("../font/Super-Mario-World.ttf") format("truetype");
+}
+@font-face {
+    font-family: "SuperMario2";
+    src: url("../font/SuperMario256.ttf") format("truetype");
+}
 
 * {
     margin: 0;
@@ -12,35 +16,53 @@ geral */
     box-sizing: border-box;
 }
 
-.game-board{
+body{
+    background-color: rgb(35, 160, 35);
+}
+
+.game-board {
     width: 100%;
     height: 500px;
-    border-bottom: 15px solid rgb(35, 160, 35);
+    border-bottom: 1px solid #175725;
     margin: 0 auto;
     position: relative;
-    overflow: hidden; /*conteúdo é cortado e nenhuma barra de rolagem é exibida*/
-    background: linear-gradient(#87CEEB, #e0f6ff);
+    overflow: hidden;
+    /*conteúdo é cortado e nenhuma barra de rolagem é exibida*/
+    /*background: linear-gradient(#87CEEB, #e0f6ff);*/
+    background-image: url(../img/fundo.jpg);
+}
+
+.level, .points, .seconds{
+    font-family: "superMario";
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 14px;
 }
 
 /********************************************************
 pipe, nuvens, pulo e mario */
-.pipe{
+.pipe {
     position: absolute;
     bottom: 0;
     width: 80px;
     right: -80px;
     /*animation: pipe-animation 1.5s infinite linear;*/
 
-}/*nome-animacao + tempo-de-execucao + qnd-aparecer + se usará linha inteira*/
+}
 
-.mario{
+/*nome-animacao + tempo-de-execucao + qnd-aparecer + se usará linha inteira*/
+
+.mario {
     width: 150px;
     position: absolute;
     bottom: 0;
-} 
-.jump{
+}
+
+.jump {
     animation: jump 500ms ease-out;
-}/*ease-out propriedades de animação transitando lentamente, acelerando e desacelerando novamente*/
+}
+
+/*ease-out propriedades de animação transitando lentamente, acelerando e desacelerando novamente*/
 
 .clouds {
     position: absolute;
@@ -50,22 +72,34 @@ pipe, nuvens, pulo e mario */
 
 .velocidade1 {
     animation: pipe-animation1 1.5s infinite linear;
-} 
+}
 
-@keyframes pipe-animation { /* @keyframes regra - especifica o código de uma animação.*/
-    from{/*de - inicio*/
-        right: -80px;/*80px seria o tamanho da imagem, com isso ela não aparecerá na tela*/
+@keyframes pipe-animation {
+
+    /* @keyframes regra - especifica o código de uma animação.*/
+    from {
+        /*de - inicio*/
+        right: -80px;
+        /*80px seria o tamanho da imagem, com isso ela não aparecerá na tela*/
     }
-    to{/*para - fim*/
+
+    to {
+        /*para - fim*/
         right: 100%;
     }
 }
 
-@keyframes pipe-animation1 { /* @keyframes regra - especifica o código de uma animação.*/
-    from{/*de - inicio*/
-        right: -80px;/*80px seria o tamanho da imagem, com isso ela não aparecerá na tela*/
+@keyframes pipe-animation1 {
+
+    /* @keyframes regra - especifica o código de uma animação.*/
+    from {
+        /*de - inicio*/
+        right: -80px;
+        /*80px seria o tamanho da imagem, com isso ela não aparecerá na tela*/
     }
-    to{/*para - fim*/
+
+    to {
+        /*para - fim*/
         right: 200%;
     }
 }
@@ -82,57 +116,94 @@ pipe, nuvens, pulo e mario */
     50% {
         bottom: 180px;
     }
+
     60% {
         bottom: 180px;
     }
-    100%{
+
+    100% {
         bottom: 0;
     }
 }
 
 @keyframes clouds-animation {
-    from{
+    from {
         right: -550px;
     }
-    to{
+
+    to {
         right: 100%;
     }
 }
 
 /********************************************************
 inicio*/
-.botaoinicio{
-
+.supermarioinicio {
+    width: 60%;
+    height: 40%;
 }
 
-.fundoinicio{
-    background-image: url(img/fundoinicio.jpg);
+.fundoinicio {
+    background-image: url(../img/fundoinicio.jpg);
+    background-size: 100%;
+    background-repeat: none;
+}
+
+@media (min-width:450px) and (max-width:1250px) {
+    .fundoinicio {
+        background-image: url(../img/fundoinicio2.jpg);
+    }
+}
+@media (max-width:449px) {
+    .fundoinicio{
+        background-image: url(../img/fundoinicio3.jpg);
+    }
+}
+
+.botaoIniciar {
+    width: 20%;
+    height: 50px;
+    font-family: 'SuperMario2';
+    letter-spacing: 4PX;
+    border: 5px solid #000;
+    font-size: 180%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, rgba(52,97,242,1) 0%, rgba(0,47,245,1) 22%, rgba(99,26,198,1) 34%, rgba(235,34,34,1) 49%, rgba(233,157,44,1) 64%, rgba(233,204,45,1) 82%, rgba(61,232,42,1) 100%);
+    /*background: linear-gradient(90deg, rgba(100,137,255,1) 0%, rgba(26,67,241,1) 22%, rgba(255,89,89,1) 49%, rgba(188,174,99,1) 75%, rgba(123,255,108,1) 100%);
+    background: linear-gradient(90deg, rgba(6,65,255,1) 0%, rgba(255,5,5,1) 49%, rgba(14,138,0,1) 100%);;*/
 }
 
 
 /********************************************************
 game over*/
-.placar{
-    font-family: jhkj;
+.placar {
+    font-family: 'superMario2';
     width: 100px;
     height: 500px;
     border: 1px solid #000;
 }
+
 .gameover {
+    position: absolute;
     margin: 0;
-    position: fixed;
-    margin-left: 450px;
-    width: 500px;
+    width: 40%;
+    height: 400px;
 }
 
+@media (max-width:1000px ){
+    .gameover{
+        width: 60%;
+        height: 400px;
+        margin-bottom: 2em;
+    }
+}
 .btn {
-    width: 200px;
+    width: 20%;
+    position: absolute;
     height: 30px;
     background-color: #000;
-    margin-top: 400px;
+    margin-top: 350px;
+    padding: 0;
     color: bisque;
-    margin-left: 600px;
-}
-.oi{
     font-family: 'SuperMario';
 }

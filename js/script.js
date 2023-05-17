@@ -5,6 +5,8 @@ const botaovoltar = document.querySelector('.btn')
 const tempo = document.getElementById('seconds')
 const pontos = document.getElementById('points')
 const nivel = document.getElementById('level')
+const botaoinicio = document.querySelector('.botaoIniciar')
+const pontuacaofinal = 0
 let jumps = 0;
 let level = 1;
 let points = 0;
@@ -15,7 +17,7 @@ let initialPos = -80;
 
 const counter = setInterval(() => {
     initialTime++;
-    document.getElementById('seconds').textContent = 'tempo ' + initialTime;    
+    document.getElementById('seconds').textContent = 'Tempo:  ' + initialTime;    
 }, 1000);
     
 
@@ -41,11 +43,10 @@ const jump = () => {
     //pipe.style.animation = `pipe-animation 1.0s infinite linear`;
     setTimeout(() => {
         mario.classList.remove('jump')
-        document.getElementById('level').textContent = 'level ' + level;
-        document.getElementById('points').textContent = 'pontos' + points;
+        document.getElementById('level').textContent = 'Level : ' + level;
+        document.getElementById('points').textContent = 'Pontos:  ' + points;
     }, 400)//após 500milissegundos, a função será executada
 }
-
 
 const loop = setInterval(() => {
     const pipePosition = pipe.offsetLeft//deslocamento esquerdo
@@ -66,9 +67,15 @@ const loop = setInterval(() => {
         tempo.style.display = 'none'
         pontos.style.display = 'none'
         nivel.style.display = 'none'
+        var divGameOverImg = document.createElement('div')
+        divGameOverImg.classList = 'd-flex'
+        divGameOverImg.classList = 'justify-content-center'
+        var imgGameOver = document.createElement('img')
+        imgGameOver.classList = 'gameover'
+        
         gameover.src = 'img/gameover-text.png'
-        botaovoltar.src = document.createElement('button')
-        botaovoltar.innerHTML = 'voltar'
+        botaovoltar.innerHTML = 'Voltar'
+        
         //FORMATACOES IMG GAMEOVER
 
         clearInterval(loop) //parar aplicacao    para nao ser um loop infinito
@@ -86,3 +93,4 @@ setInterval(() => {
 }, 17);
 
 document.addEventListener('keydown', jump)//Adicione um evento click ao documento
+ 

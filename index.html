@@ -26,15 +26,18 @@
 
 <body>
     <div class="game-board">
-        <p><span id="seconds">00000</span></p>
-        <p><span id="level">00000</span></p>
-        <p><span id="points">00000</span></p>
+        <p><span id="seconds" class="seconds"></span></span></p>
+        <p><span id="level" class="level"></span></p>
+        <p><span id="points" class="points"></span></p>
         <img src="img/clouds.png" class="clouds">
         <img src="img/mario.gif" class="mario">
         <img src="img/pipe.png" class="pipe">
-        <img class="gameover">
-        <p class="btn"></p>
-        <p class="oi">sfsfaasfa</p>
+        <div class="d-flex justify-content-center">
+            <img class="gameover">
+        </div>
+        <div class="d-flex justify-content-center" id="gameover">
+            <button onclick="window.location.href = 'paginainicial.html' " class="btn"></button>
+        </div>
     </div>
 </body>
 
