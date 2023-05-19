@@ -242,3 +242,10 @@ game over*/
         width: 40%;
     }
 }
+
+.container-gameover {
+    display: none;
+}
+.container-gameover.active {
+    display: block;
+}

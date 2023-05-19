@@ -2,20 +2,22 @@ const mario = document.querySelector('.mario')/*retorna o primeiro Element dentr
 const pipe = document.querySelector('.pipe')
 const clouds = document.querySelector('.clouds')
 const gameover = document.querySelector('.gameover')
+const containerGameover = document.querySelector('.container-gameover')
 const botaovoltar = document.querySelector('.btn')
-const tempo = document.getElementById('seconds')
-const pontos = document.getElementById('points')
-const nivel = document.getElementById('level')
 const botaoinicio = document.querySelector('.botaoIniciar')
 const pontuacaofinal = document.querySelector('.pontuacaofinal')
 const nivelfim = document.querySelector('.nivelfim')
+const tempo = document.getElementById('seconds')
+const pontos = document.getElementById('points')
+const nivel = document.getElementById('level')
+const inicio = document.getElementById('iniciojogo')
 let jumps = 0;
 let level = 1;
 let points = 0;
 let initialSpeed = 1.6;
-var seconds = 00000;
 let initialTime = 0;
 let initialPos = -80;
+var seconds = 00000;
 
 const counter = setInterval(() => {
     initialTime++;
@@ -57,9 +59,12 @@ function pontuacaoFinal() {
         pontuacaofinal.textContent = 'Pontuacao Final: ' + points
     }
 }
+
 function nivelFim() {
-    nivelfim.textContent = 'Nivel: ' + nivel
+    nivelfim.textContent = 'Nivel: ' + level
 }
+
+//loop de
 const loop = setInterval(() => {
 
     const pipePosition = pipe.offsetLeft//deslocamento esquerdo
@@ -68,6 +73,7 @@ const loop = setInterval(() => {
     //replace() - substitui valores
     if (pipePosition <= 90 && pipePosition > 0 && marioPosition < 80) {//condicao para gameover
         console.log(pipePosition);
+        containerGameover.classList.add('active');
         pipe.style.animation = 'none'//animacao vai parar
         pipe.style.left = `${pipePosition}px`//valor left será o de quando o mario bater no objeto
 
